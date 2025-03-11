@@ -13,7 +13,7 @@ for i=1:numel(bboxes)
     labels{i} = lmarks.data;
     
     img = imread([root_dir,  bboxes(i).name]);
-    imshow(img); hold on;plot(labels{i}(:,1), labels{i}(:,2), '.r');hold off;
+    // imshow(img); hold on;plot(labels{i}(:,1), labels{i}(:,2), '.r');hold off;
     drawnow expose;
 end
 save('results/menpo_labels', 'labels');

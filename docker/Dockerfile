@@ -41,6 +41,7 @@ RUN apt-get update -qq &&\
         libopenblas-dev liblapack-dev \
         libavcodec-dev libavformat-dev libswscale-dev \
         libtbb2 libtbb-dev libjpeg-dev \
+        libgtk2.0-dev pkg-config \
         libpng-dev libtiff-dev &&\
     rm -rf /var/lib/apt/lists/*
 
@@ -151,6 +152,7 @@ WORKDIR /root
 # Copy in only necessary libraries
 COPY --from=openface /root/diff /
 
+
 # Since we "imported" the build artifacts, we need to reconfigure ld
 RUN ldconfig
 
@@ -159,6 +161,8 @@ RUN ldconfig
 WORKDIR /root/openface/opengaze
 
 COPY ./opengaze .
+COPY --from=model_data /data/patch_experts/* /root/openface/lib/local/LandmarkDetector/model/patch_experts/
+
 
 # Install Python and FastAPI dependencies
 RUN apt-get update && apt-get install -y python3 python3-pip && \

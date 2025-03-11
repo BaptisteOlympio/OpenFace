@@ -10,7 +10,7 @@ for i=2:numel(imgs)
     img = imread(['D:\Datasets\300_W\AFW/', imgs(i).name]);
     [bboxes, lmarks, confidences] = detect_face_mtcnn(img, 60);
     hold off
-    imshow(img);
+    // imshow(img);
     hold on;
     for d=1:size(bboxes,1)
         rectangle('Position', [bboxes(d,1), bboxes(d,2), bboxes(d,3)-bboxes(d,1), bboxes(d,4) - bboxes(d,2)]);

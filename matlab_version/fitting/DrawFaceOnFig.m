@@ -33,9 +33,9 @@ function DrawFaceOnFig( img, shape, orig_bbox, visibilities)
     end
 
     if(max(img(:)) > 1)
-        imshow(double(img)/255, 'Border', 'tight');
+        // imshow(double(img)/255, 'Border', 'tight');
     else
-        imshow(double(img), 'Border', 'tight');
+        // imshow(double(img), 'Border', 'tight');
     end
     hold on;
     plot(shape(v_points,1), shape(v_points,2),'.r','MarkerSize',20);

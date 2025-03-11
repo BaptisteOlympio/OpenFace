@@ -118,8 +118,8 @@ It provides easy interface to:
                 img1.convertTo(img2,-1,1,value);
                 video >> img3;
 
-                imshow("main1",img2);
-                imshow("main2",img3);
+                // imshow("main1",img2);
+                // imshow("main2",img3);
             }
 
             destroyAllWindows();
@@ -147,7 +147,7 @@ It provides easy interface to:
             cv::Mat image = cv::imread("Assets/sample.jpg");
             cv::Mat converted = cv::Mat(image.rows, image.cols, CV_8UC4);
             cv::cvtColor(image, converted, COLOR_BGR2BGRA);
-            cv::imshow(windowName, converted); // this will create window if it hasn't been created before
+            // cv::imshow(windowName, converted); // this will create window if it hasn't been created before
 
             int state = 42;
             cv::TrackbarCallback callback = [](int pos, void* userdata)
@@ -386,7 +386,7 @@ videos, it will display the video frame-by-frame)
 @param winname Name of the window.
 @param mat Image to be shown.
  */
-CV_EXPORTS_W void imshow(const String& winname, InputArray mat);
+// CV_EXPORTS_W void imshow(const String& winname, InputArray mat);
 
 /** @brief Resizes window to the specified size
 
@@ -621,7 +621,7 @@ CV_EXPORTS_W void setTrackbarMin(const String& trackbarname, const String& winna
 @param winname Name of the window.
 @param tex OpenGL 2D texture data.
  */
-CV_EXPORTS void imshow(const String& winname, const ogl::Texture2D& tex);
+// CV_EXPORTS void imshow(const String& winname, const ogl::Texture2D& tex);
 
 /** @brief Sets a callback function to be called to draw on top of displayed image.
 

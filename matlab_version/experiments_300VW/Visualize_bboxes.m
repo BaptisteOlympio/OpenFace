@@ -22,7 +22,7 @@ for i=1:numel(vid_locs)
         input_image = readFrame(vid);
                         
         %% plot the result
-        imshow(input_image);
+        // imshow(input_image);
         hold on;
         bbox_hog = bounding_boxes_hog(f,:);
         bbox_mtcnn = bounding_boxes_mtcnn(f,:);

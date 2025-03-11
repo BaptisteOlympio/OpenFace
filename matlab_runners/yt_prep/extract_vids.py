@@ -28,9 +28,9 @@ for vid in vids:
 
     for img in yt_imgs:
         img = cv2.imread(img)
-        cv2.imshow("test", img)
+        # cv2.imshow("test", img)
 
-        cv2.waitKey(10)
+        # cv2.waitKey(10)
         out.write(img)
 
     out.release()

@@ -134,8 +134,8 @@ CVAPI(double) cvGetWindowProperty(const char* name, int prop_id);
 CVAPI(cv::Rect)cvGetWindowImageRect(const char* name);
 #endif
 
-/* display image within window (highgui windows remember their content) */
-CVAPI(void) cvShowImage( const char* name, const CvArr* image );
+// /* display image within window (highgui windows remember their content) */
+// CVAPI(void) cvShowImage( const char* name, const CvArr* image );
 
 /* resize/move window */
 CVAPI(void) cvResizeWindow( const char* name, int width, int height );
@@ -227,7 +227,7 @@ CVAPI(void) cvUpdateWindow(const char* window_name);
 #define cvAddSearchPath(path)
 #define cvvInitSystem cvInitSystem
 #define cvvNamedWindow cvNamedWindow
-#define cvvShowImage cvShowImage
+// #define cvvShowImage cvShowImage
 #define cvvResizeWindow cvResizeWindow
 #define cvvDestroyWindow cvDestroyWindow
 #define cvvCreateTrackbar cvCreateTrackbar

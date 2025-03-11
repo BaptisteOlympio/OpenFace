@@ -34,9 +34,9 @@ function DrawFaceOnImg( img, shape, out_loc, orig_bbox, visibilities)
     end
 
     if(max(img(:)) > 1)
-        imshow(double(img)/255, 'Border', 'tight');
+        // imshow(double(img)/255, 'Border', 'tight');
     else
-        imshow(double(img), 'Border', 'tight');
+        // imshow(double(img), 'Border', 'tight');
     end
     hold on;
 

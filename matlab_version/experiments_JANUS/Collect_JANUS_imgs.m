@@ -65,7 +65,7 @@ function [images, detections, labels] = Collect_JANUS_imgs(root_test_data)
             images(ind).img = [dataset_loc,  name];
             labels(ind,:,:) = landmarks;
             
-%             imshow(imread(images(ind).img));
+// %             imshow(imread(images(ind).img));
 %             hold on;
 %             rectangle('position', [x, y, width, height]);
 %             hold off;            

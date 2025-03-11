@@ -77,7 +77,7 @@ for i=1:numel(vid_locs)
         preds(:,:,f) = shape;
             
         %% plot the result
-%         imshow(input_image);
+// %         imshow(input_image);
 %         hold on;
 %         plot(shape(:,1), shape(:,2), '.r');
 % %         rectangle('Position', [bb(2), bb(1), bb(4), bb(3)]);

@@ -130,9 +130,9 @@ for i=1:numel(images)
 
         try
         if(max(image_orig(:)) > 1)
-            imshow(double(image_orig)/255, 'Border', 'tight');
+            // imshow(double(image_orig)/255, 'Border', 'tight');
         else
-            imshow(double(image_orig), 'Border', 'tight');
+            // imshow(double(image_orig), 'Border', 'tight');
         end
         axis equal;
         hold on;
