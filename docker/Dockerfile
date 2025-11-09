@@ -31,7 +31,7 @@ FROM ubuntu:20.04 as ubuntu_base
 #         ARCH_FLAGS="-march=armv8-a"; \
 #     fi
 
-# FROM ${BASE_IMAGE}ubuntu:18.04 as ubuntu_base
+# FROM ${BASE_IMAGE}ubuntu:20.04 as ubuntu_base
 LABEL maintainer="Michael McDermott <mikemcdermott23@gmail.com>"
 ARG DEBIAN_FRONTEND=noninteractive
 
@@ -172,3 +172,7 @@ RUN apt-get update && apt-get install -y python3 python3-pip && \
 # # Expose FastAPI port
 EXPOSE 8000
 
+
+## Python layer
+
+WORKDIR /workspace
