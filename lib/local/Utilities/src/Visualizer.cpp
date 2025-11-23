@@ -413,34 +413,35 @@ char Visualizer::ShowObservation()
 {
 	// bool ovservation_shown = false;
 
-	// if (vis_align && !aligned_face_image.empty())
-	// {
-	// 	// cv::imshow("sim_warp", aligned_face_image);
-	// 	// ovservation_shown = true;
-	// }
-	// if (vis_hog && !hog_image.empty())
-	// {
-	// 	// cv::imshow("hog", hog_image);
-	// 	// ovservation_shown = true;
-	// }
-	// if (vis_aus && !action_units_image.empty())
-	// {
-	// 	// cv::imshow("action units", action_units_image);
-	// 	// ovservation_shown = true;
-	// }
-	// if (vis_track)
-	// {
-	// 	// cv::imshow("tracking result", captured_image);
-	// 	// ovservation_shown = true;
-	// }
+	if (vis_align && !aligned_face_image.empty())
+	{
+		// cv::imshow("sim_warp", aligned_face_image);
+		ovservation_shown = true;
+	}
+	if (vis_hog && !hog_image.empty())
+	{
+		// cv::imshow("hog", hog_image);
+		ovservation_shown = true;
+	}
+	if (vis_aus && !action_units_image.empty())
+	{
+		// cv::imshow("action units", action_units_image);
+		ovservation_shown = true;
+	}
+	if (vis_track)
+	{
+		// cv::imshow("tracking result", captured_image);
+		ovservation_shown = true;
+	}
 	
-	// // Only perform waitKey if something was shown
-	// char result = '\0';
-	// if (ovservation_shown)
-	// {
-	// 	result = cv::waitKey(1);
-	// }
-	return '\0';
+	// Only perform waitKey if something was shown
+	char result = '\0';
+	if (ovservation_shown)
+	{
+		// result = cv::waitKey(1);
+	}
+	return result;
+
 }
 
 cv::Mat Visualizer::GetVisImage()

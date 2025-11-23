@@ -183,7 +183,7 @@ int main (int argc, char **argv)
 		// frameProc++;
 		
 		// detect key presses
-		char c = cv::waitKey(1);
+		// char c = cv::waitKey(1);
 			
 		// quit the application
 		if(c=='q')
