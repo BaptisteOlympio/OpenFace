@@ -22,15 +22,16 @@ ARG TARGETPLATFORM
 ARG BASE_IMAGE=""
 ARG OPENBLAS_LIB=/usr/lib/x86_64-linux-gnu/libopenblas.so
 ARG ARCH_FLAGS=""
+FROM ubuntu:20.04 as ubuntu_base
 
 # Override for ARM64
-RUN if [ "$TARGETPLATFORM" = "arm64/v8" ]; then \
-        BASE_IMAGE="arm64v8"; \
-        OPENBLAS_LIB="/usr/lib/aarch64-linux-gnu/libopenblas.so"; \
-        ARCH_FLAGS="-march=armv8-a"; \
-    fi
+# RUN if [ "$TARGETPLATFORM" = "arm64/v8" ]; then \
+#         BASE_IMAGE="arm64v8"; \
+#         OPENBLAS_LIB="/usr/lib/aarch64-linux-gnu/libopenblas.so"; \
+#         ARCH_FLAGS="-march=armv8-a"; \
+#     fi
 
-FROM ${BASE_IMAGE}ubuntu:18.04 as ubuntu_base
+# FROM ${BASE_IMAGE}ubuntu:18.04 as ubuntu_base
 LABEL maintainer="Michael McDermott <mikemcdermott23@gmail.com>"
 ARG DEBIAN_FRONTEND=noninteractive
 
