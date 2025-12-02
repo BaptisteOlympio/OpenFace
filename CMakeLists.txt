@@ -135,14 +135,36 @@ foreach(file ${files})
 	install(DIRECTORY ${file} DESTINATION ${CMAKE_CONFIG_DIR}/AU_predictors)
 endforeach()
 
+# Detect architecture
+message(STATUS "Detected architecture: ${CMAKE_SYSTEM_PROCESSOR}")
+message(STATUS "CPU_ARCH passed from Docker: ${CPU_ARCH}")
+
+# GCC version check stays as-is
 if (${CMAKE_CXX_COMPILER_ID} STREQUAL "GNU")
-    execute_process(COMMAND ${CMAKE_CXX_COMPILER} -dumpversion OUTPUT_VARIABLE GCC_VERSION)
+    execute_process(
+        COMMAND ${CMAKE_CXX_COMPILER} -dumpversion
+        OUTPUT_VARIABLE GCC_VERSION
+    )
     if (GCC_VERSION VERSION_LESS 8.0)
-		MESSAGE(FATAL_ERROR "Need a 8.0 or newer GCC compiler. Current GCC: ${GCC_VERSION}")
-    else ()
-        set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -msse -msse2 -msse3")
-    endif ()
-endif ()
+        message(FATAL_ERROR "Need GCC >= 8.0, current GCC = ${GCC_VERSION}")
+    endif()
+endif()
+
+# === ARCHITECTURE-SPECIFIC FLAGS ===
+if (CMAKE_SYSTEM_PROCESSOR MATCHES "x86_64|amd64")
+    message(STATUS "Using x86 SSE flags")
+    set(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS} -msse -msse2 -msse3")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -msse -msse2 -msse3")
+elseif (CMAKE_SYSTEM_PROCESSOR MATCHES "aarch64|arm64")
+    message(STATUS "Using ARMv8 flags")
+    set(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS} -march=armv8-a")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -march=armv8-a")
+
+    # Arm-only library overrides (formerly in Dockerfile)
+    set(OpenBLAS_INCLUDE_DIR "/usr/include")
+    set(OpenBLAS_LIB         "/usr/lib/aarch64-linux-gnu/libopenblas.so")
+endif()
+
 
 # dlib
 find_package(dlib 19.13)
