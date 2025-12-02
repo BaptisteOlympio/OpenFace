@@ -411,7 +411,7 @@ void Visualizer::SetFps(double fps)
 
 char Visualizer::ShowObservation()
 {
-	// bool ovservation_shown = false;
+	bool ovservation_shown = false;
 
 	if (vis_align && !aligned_face_image.empty())
 	{
