@@ -55,8 +55,10 @@ SET(Open_BLAS_INCLUDE_SEARCH_PATHS
   /usr/local/include
   /usr/include
   /usr/local/opt/openblas/include
+  /usr/include/arm-linux-gnueabihf        # <-- added for Raspberry Pi/ARM
+  /usr/include/aarch64-linux-gnu          # <-- added for 64-bit ARM variants
 )
-
+ 
 SET(Open_BLAS_LIB_SEARCH_PATHS
         $ENV{OpenBLAS}cd
         $ENV{OpenBLAS}/lib
@@ -72,7 +74,10 @@ SET(Open_BLAS_LIB_SEARCH_PATHS
         /usr/lib/x86_64-linux-gnu
         /usr/lib64
         /usr/lib
-		/usr/local/opt/openblas/lib
+        /usr/local/opt/openblas/lib
+        /usr/lib/arm-linux-gnueabihf        # <-- added for Raspberry Pi/ARM
+        /usr/lib/arm-linux-gnueabihf/openblas
+        /usr/lib/aarch64-linux-gnu         # <-- added for ARM64 RPi
  )
 
 FIND_PATH(OpenBLAS_INCLUDE_DIR NAMES f77blas.h PATHS ${Open_BLAS_INCLUDE_SEARCH_PATHS} NO_DEFAULT_PATH)
