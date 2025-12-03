@@ -59,7 +59,7 @@ SET(Open_BLAS_INCLUDE_SEARCH_PATHS
   /usr/include/aarch64-linux-gnu          # <-- added for 64-bit ARM variants
 )
  
-SET(Open_BLAS_LIB_SEARCH_PATHS
+SET(Open_BLAS_LIB_SEARCH_PATHS 
         $ENV{OpenBLAS}cd
         $ENV{OpenBLAS}/lib
         $ENV{OpenBLAS_HOME}
